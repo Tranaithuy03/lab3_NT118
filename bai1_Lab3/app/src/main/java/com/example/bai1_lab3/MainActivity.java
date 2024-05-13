@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         }
     private void showData() {
         ListView lvUser = (ListView) findViewById(R.id.lv_user);
-
+        ArrayAdapter<String> userAdapter = new
+                ArrayAdapter<String>(MainActivity.this, R.layout.item_user, users);
+        lvUser.setAdapter(userAdapter);
     }
 }
