@@ -56,10 +56,10 @@ public class DatabaseHandle extends SQLiteOpenHelper {
                 int idColumnIndex =cursor.getColumnIndex(KEY_MSSV);
                 int nameColumnIndex = cursor.getColumnIndex(KEY_NAME);
                 int phoneColumnIndex = cursor.getColumnIndex(KEY_CLASS);
-                String MSVV = cursor.getString(idColumnIndex);
+                String MSSV = cursor.getString(idColumnIndex);
                 String name = cursor.getString(nameColumnIndex);
                 String phoneNumber = cursor.getString(phoneColumnIndex);
-                student student = new student(mssv, name, phoneNumber);
+                student student = new student(MSSV, name, phoneNumber);
                 students.add(student);
             }while (cursor.moveToNext());
             cursor.close();

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     Button btn_del;
     Button btn_update;
     Button btn_query;
+    DatabaseHandle db = new DatabaseHandle(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         btn_query = findViewById(R.id.btn_query);
         recyclerView = findViewById(R.id.rv_Result);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DatabaseHandle db = new DatabaseHandle(this);
-        Log.e("Reading: ", "Reading all contacts..");
+
         students = db.getAllStudents();
         showData(students);
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
     @Override
     public void onClick(int position) {
-        student student = students.get(position);
+        student student = db.getAllStudents().get(position);
         edMSSV.setText(student.getMssv());
         edName.setText(student.getName());
         edClass.setText(student.get_class());
